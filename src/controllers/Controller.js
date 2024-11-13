@@ -3,7 +3,6 @@ class Controller {
     this.entidadeService = entidadeService;
   }
 
-  // Função auxiliar para verificar a existência do registro
   async verificaRegistroExistente(id) {
     const registro = await this.entidadeService.pegaUmRegistroPorId(id);
     if (!registro) {
@@ -29,14 +28,18 @@ class Controller {
       return res.status(200).json(umRegistro);
     } catch (erro) {
       console.error(erro);
-      return res.status(erro.status || 500).json({ mensagem: erro.mensagem || "Erro ao buscar registro" });
+      return res
+        .status(erro.status || 500)
+        .json({ mensagem: erro.mensagem || "Erro ao buscar registro" });
     }
   }
 
   async criaNovo(req, res) {
     const dadosParaCriacao = req.body;
     try {
-      const novoRegistroCriado = await this.entidadeService.criaRegistro(dadosParaCriacao);
+      const novoRegistroCriado = await this.entidadeService.criaRegistro(
+        dadosParaCriacao
+      );
       return res.status(201).json(novoRegistroCriado);
     } catch (erro) {
       console.error(erro);
@@ -54,15 +57,22 @@ class Controller {
       }
 
       await this.verificaRegistroExistente(Number(id));
-      const foiAtualizado = await this.entidadeService.atualizaRegistro(dadosAtualizados, Number(id));
+      const foiAtualizado = await this.entidadeService.atualizaRegistro(
+        dadosAtualizados,
+        Number(id)
+      );
       if (!foiAtualizado) {
-        return res.status(400).json({ mensagem: "Registro não foi atualizado" });
+        return res
+          .status(400)
+          .json({ mensagem: "Registro não foi atualizado" });
       }
 
       return res.status(200).json({ mensagem: "Atualizado com sucesso" });
     } catch (erro) {
       console.error(erro);
-      return res.status(erro.status || 500).json({ mensagem: erro.mensagem || "Erro interno do servidor" });
+      return res
+        .status(erro.status || 500)
+        .json({ mensagem: erro.mensagem || "Erro interno do servidor" });
     }
   }
 
@@ -71,10 +81,14 @@ class Controller {
     try {
       await this.verificaRegistroExistente(Number(id));
       await this.entidadeService.excluiRegistro(Number(id));
-      return res.status(200).json({ mensagem: `Registro com id ${id} deletado` });
+      return res
+        .status(200)
+        .json({ mensagem: `Registro com id ${id} deletado` });
     } catch (erro) {
       console.error(erro);
-      return res.status(erro.status || 500).json({ mensagem: erro.mensagem || "Erro ao deletar registro" });
+      return res
+        .status(erro.status || 500)
+        .json({ mensagem: erro.mensagem || "Erro ao deletar registro" });
     }
   }
 }
