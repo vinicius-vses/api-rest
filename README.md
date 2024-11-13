@@ -14,12 +14,15 @@
     <li><strong>Cadastrar Cliente</strong> - Permite a criação de um novo cliente com os seguintes dados: ID, Nome Completo, Telefone, Email.</li>
     <li><strong>Listar Todos os Clientes</strong> - Retorna uma lista com todos os clientes cadastrados.</li>
     <li><strong>Listar Detalhe do Cliente</strong> - Retorna detalhes específicos de um cliente, incluindo o endereço principal e o email principal.</li>
+    <li><strong>Atualizar Cliente</strong> - Permite a atualização dos dados de um cliente existente.</li>
+    <li><strong>Deletar Cliente</strong> - Permite a remoção de um cliente do sistema.</li>
   </ul>
+
+<p>Obs: As funcionalidades "Atualizar Cliente" e "Deletar Cliente" não foram solicitadas no desafio, mas eu decidi implementá-las.</p>
 
   <h2>Tecnologias Utilizadas</h2>
   <ul>
     <li><strong>Backend:</strong> linguagem/framework Node.js, Express</li>
-    <li><strong>Banco de Dados:</strong> SQLite</li>
     <li><strong>ORM:</strong> Sequelize</li>
   </ul>
 
