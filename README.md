@@ -7,7 +7,8 @@
 <body>
 
   <h1>Desafio Técnico - API de Gestão de Clientes</h1>
-   <p>Este projeto foi desenvolvido como solução para um desafio técnico proposto pelo gestor Ronaldo Carneiro, da área de previdência da XP.INC. O desafio consiste na criação de uma API RESTful para gerenciar dados de clientes, permitindo o cadastro, consulta e detalhamento de informações dos clientes.</p>
+  <h2>Instruções</h2>
+  <p>Este projeto foi desenvolvido como solução para um desafio técnico proposto pelo gestor Ronaldo Carneiro, da área de previdência da XP.INC. O desafio consiste na criação de uma API RESTful para gerenciar dados de clientes, permitindo o cadastro, consulta e detalhamento de informações dos clientes.</p>
 
   <h2>Funcionalidades</h2>
   <ul>
@@ -18,11 +19,11 @@
     <li><strong>Deletar Cliente</strong> - Permite a remoção de um cliente do sistema.</li>
   </ul>
 
-<p>Obs: As funcionalidades "Atualizar Cliente" e "Deletar Cliente" não foram solicitadas no desafio, mas eu decidi implementá-las.</p>
+  <p>Obs: As funcionalidades "Atualizar Cliente" e "Deletar Cliente" não foram solicitadas no desafio, mas eu decidi implementá-las.</p>
 
   <h2>Tecnologias Utilizadas</h2>
   <ul>
-    <li><strong>Backend:</strong> linguagem/framework Node.js, Express</li>
+    <li><strong>Backend:</strong> JavaScript, Node.js, Express</li>
     <li><strong>ORM:</strong> Sequelize</li>
   </ul>
 
@@ -33,6 +34,30 @@
     </li>
     <li>Instale as dependências:
       <pre><code>npm install</code></pre>
+    </li>
+    <li>Instale o Sequelize e o SQLite:
+      <pre><code>npm install sequelize sqlite3</code></pre>
+    </li>
+    <li>Configure o arquivo de banco de dados com o Sequelize. Certifique-se de ter um arquivo <code>config/config.json</code> para configurar as credenciais de conexão:</li>
+    <pre><code>
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "database.sqlite"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "database.sqlite"
+  },
+  "production": {
+    "dialect": "sqlite",
+    "storage": "database.sqlite"
+  }
+}
+    </code></pre>
+    <li>Crie o banco de dados e execute as migrações:
+      <pre><code>npx sequelize-cli db:create</code></pre>
+      <pre><code>npx sequelize-cli db:migrate</code></pre>
     </li>
     <li>Execute o projeto:
       <pre><code>npm start</code></pre>
