@@ -36,20 +36,22 @@ class Controller {
   async atualiza(req, res) {
     const { id } = req.params;
     const dadosAtualizados = req.body;
+    
     try {
-      isUpdated;
-      const foiAtualizado = await this.entidadeService.atualizaRegistro(
-        dadosAtualizados,
-        Number(id)
-      );
-      if (!foiAtualizado) {
-        return res
-          .status(400)
-          .json({ mensagem: "registro não foi atualizado" });
+      if (!dadosAtualizados || Object.keys(dadosAtualizados).length === 0) {
+        return res.status(400).json({ mensagem: "Nenhum dado para atualizar" });
       }
+  
+      const foiAtualizado = await this.entidadeService.atualizaRegistro(dadosAtualizados, Number(id));
+  
+      if (!foiAtualizado) {
+        return res.status(400).json({ mensagem: "Registro não foi atualizado" });
+      }
+  
       return res.status(200).json({ mensagem: "Atualizado com sucesso" });
     } catch (erro) {
-      erro;
+      console.error(erro);
+      return res.status(500).json({ mensagem: "Erro interno do servidor" });
     }
   }
 
