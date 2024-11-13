@@ -10,15 +10,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nomeCompleto: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       telefone: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       email: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       enderecoPrincipal: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
